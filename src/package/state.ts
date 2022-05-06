@@ -4,9 +4,10 @@
  * https://github.com/re-knownout/videoprof-application
  */
 
-import { popupComponentState, usePopupState } from "@package/PopupComponent/PopupComponent";
+import { usePopupState } from "@package/PopupComponent/PopupComponent";
+import { useLoadingState } from "@package/LoadingComponent/LoadingComponent";
 
 export {
-    popupComponentState,
-    usePopupState
+    usePopupState,
+    useLoadingState
 };

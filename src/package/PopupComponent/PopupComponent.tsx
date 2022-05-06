@@ -12,7 +12,7 @@ import { classNames } from "@knownout/lib";
 
 interface IPopupComponentProps
 {
-    // Element for portal
+    // Element for the portal
     parentElement?: Element;
 }
 

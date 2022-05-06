@@ -6,8 +6,10 @@
 
 import PopupComponent from "@package/PopupComponent/PopupComponent";
 import LinkComponent from "@package/LinkComponent/LinkComponent";
+import LoadingComponent from "@package/LoadingComponent/LoadingComponent";
 
 export {
     PopupComponent,
-    LinkComponent
+    LinkComponent,
+    LoadingComponent
 };

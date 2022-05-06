@@ -8,7 +8,7 @@ import React, { Fragment } from "react";
 import "./App.scss";
 import { Button, Dropdown, DropdownItem, Input } from "@knownout/interface";
 import { CakeIcon, SelectorIcon } from "@heroicons/react/outline";
-import { LinkComponent, PopupComponent } from "@package";
+import { LinkComponent, LoadingComponent, PopupComponent } from "@package";
 import { usePopupState } from "@package/state";
 
 export default function App () {
@@ -16,8 +16,9 @@ export default function App () {
 
     return <Fragment>
         <PopupComponent />
+        <LoadingComponent />
 
-        <LinkComponent path="#">Hello world</LinkComponent>
+        <LinkComponent path="#"> Hello world</LinkComponent>
         <Button onClick={ () => {
             setPopupState({
                 children: <div>Hello world</div>,
