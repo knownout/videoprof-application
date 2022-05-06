@@ -1,6 +1,6 @@
 # 🧊 VideoProf web application
 
-Web application for VideoProf studio.
+Web application for VideoProf Studio.
 
 VideoProf — is a studio for a professional photo and video filming of events and products of any plan and quality. Part
 of the [Fuori Group](https://fuori.org/).
