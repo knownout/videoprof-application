@@ -46,4 +46,8 @@ div.popup-component {
             transform: scale(0.75, 0.75);
         }
     }
+
+    @supports not (backdrop-filter: blur(15px)) {
+        background: rgba(colors.$bg-dark, .98);
+    }
 }
