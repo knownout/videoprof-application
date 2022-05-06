@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="kwt-server" uploadOnCheckin="c099a7f6-38c8-4153-9a28-4a1799bc40c7" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="kwt-server">
+        <serverdata>
+          <mappings>
+            <mapping deploy="\" local="$PROJECT_DIR$/dist" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="kwt-server" />
+  </component>
+</project>

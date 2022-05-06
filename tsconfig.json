@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ES2020",
+            "ES2021"
+        ],
+        "module": "CommonJS",
+        "target": "es5",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "incremental": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "alwaysStrict": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "noImplicitThis": true,
+        "noImplicitOverride": true,
+        "downlevelIteration": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "removeComments": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "declaration": false,
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@package/*": [ "./src/package/*" ],
+
+            "@package": [ "./src/package/index.ts" ],
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./node_modules/**/*",
+        "./*.config.*s"
+    ]
+}

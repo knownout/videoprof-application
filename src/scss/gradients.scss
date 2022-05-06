@@ -1,0 +1,25 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "./colors";
+
+$linear-light: linear-gradient(45deg, colors.$fg-dark, colors.$fg-light);
+
+// Set text color as light gradient
+@mixin text-light {
+    background: linear-gradient(45deg, colors.$fg-dark, colors.$fg-light);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// Set text color as dark gradient
+@mixin text-dark {
+    background: linear-gradient(45deg, colors.$bg-dark, colors.$bg-light);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="videoprof-logo-root" viewBox="0.06 366.51 494.98 524.98">
+    <defs>
+        <linearGradient id="grd-line" gradientTransform="rotate(90)">
+            <stop offset="0%" stop-color="#564952"/>
+            <stop offset="90%" stop-color="#e4cfde" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="grd-root" gradientTransform="rotate(45)">
+            <stop offset="0%" stop-color="#564952"/>
+            <stop offset="100%" stop-color="#e4cfde"/>
+        </linearGradient>
+        <linearGradient id="grd-root-bg" gradientTransform="rotate(45)">
+            <stop offset="0%" stop-color="#564952" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#e4cfde" stop-opacity="0.3"/>
+        </linearGradient>
+    </defs>
+    <path fill="url('#grd-root-bg')"
+          d="M960.18,456.51,712.69,704,960.18,951.49,1207.67,704ZM960,840.17l-136-136,136-136Z"
+          transform="translate(-712.63 -60)"/>
+    <path fill="url('#grd-root')" d="M960.18,456.51,712.69,704,960.18,951.49,1207.67,704ZM960,840.17l-136-136,136-136Z"
+          transform="translate(-712.63 -90)"/>
+</svg>

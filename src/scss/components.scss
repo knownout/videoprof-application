@@ -1,0 +1,202 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "./mixins";
+@use "./gradients";
+@use "./colors";
+
+// KWT Interface library components stylesheet
+
+button.interface.button {
+    @include mixins.content-block(30px, gradients.$linear-light);
+    @include mixins.interactive-block(5px);
+
+    div.button-child {
+        @include mixins.text-content;
+        @include gradients.text-dark;
+
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
+div.interface.dropdown {
+    @include mixins.content-block(0px);
+    max-width: 100%;
+    transition: 200ms ease all;
+    border-radius: 30px;
+
+    & > div.title {
+        @include mixins.content-block(30px);
+        @include mixins.interactive-block(5px);
+
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        max-width: 100%;
+        background: rgba(colors.$fg-light, .1);
+
+        gap: 15px;
+
+        & > span {
+            font-size: 22px;
+            font-weight: 700;
+
+            @include gradients.text-light;
+            word-break: break-word;
+        }
+
+        & > div.icon-holder {
+            overflow: hidden;
+            $size: 25px;
+
+            width: $size;
+            min-width: $size;
+            height: $size;
+
+            margin-left: auto;
+
+            svg {
+                height: inherit;
+                color: colors.$fg-light;
+            }
+        }
+    }
+
+    & > div.items {
+        @include mixins.content-block(0px);
+        display: flex;
+
+        overflow: hidden;
+
+        flex-direction: column;
+        width: 100%;
+
+        button.interface.dropdown-item {
+            @include mixins.content-block(30px);
+            @include gradients.text-light;
+
+            font-size: 22px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: 100ms ease all;
+
+            opacity: .76;
+
+            &:hover { opacity: 1; }
+
+            &:active { transform: scale(0.96, 0.96); }
+
+            &.selected { opacity: .4; }
+        }
+    }
+
+    &:not(.open) > div.items { height: 0; }
+
+    &.open { box-shadow: 0 0 0 5px rgba(colors.$fg-light, .35); }
+}
+
+div.interface.input {
+    @include mixins.content-block(0px, gradients.$linear-light, colors.$bg-dark);
+
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+
+    width: fit-content;
+    max-width: 100%;
+
+    transition: 100ms ease all;
+
+    opacity: .8;
+    border-radius: 30px;
+
+    &:hover { opacity: .9; }
+
+    &:focus-within { opacity: 1; box-shadow: 0 0 0 5px rgba(colors.$fg-light, .35); }
+
+    div.icon-holder {
+        position: relative;
+        display: grid;
+
+        width: auto;
+        height: 87px;
+
+        padding-left: 30px;
+        place-items: center;
+
+        svg {
+            width: 30px;
+            opacity: .7;
+            color: colors.$bg-dark;
+        }
+    }
+
+    div.input-holder {
+        position: relative;
+        display: block;
+
+        width: 100%;
+
+        div.placeholder {
+            @include mixins.content-block(30px);
+            @include mixins.text-ellipsis;
+
+            font-size: 22px;
+
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+            width: 100%;
+            transition: 100ms ease all;
+
+            opacity: .6;
+        }
+
+        input {
+            @include mixins.content-block(30px);
+            @include mixins.text-ellipsis;
+            font-size: 22px;
+            font-weight: 700;
+
+            width: 100%;
+            transition: 100ms ease all;
+
+            opacity: .9;
+
+            &::selection {
+                background-color: rgba(colors.$bg-light, .4);
+            }
+        }
+    }
+
+    &.has-value div.input-holder {
+        div.placeholder {
+            font-size: 14px;
+            transform: translateY(-9px);
+        }
+
+        input {
+            transform: translateY(9px);
+        }
+    }
+}
+
+// Native elements stylesheet
+
+h1, h2, h3 {
+    @include gradients.text-light;
+
+    font-weight: 700;
+    margin: 0;
+
+    padding: 0;
+}

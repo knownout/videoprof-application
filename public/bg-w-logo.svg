@@ -1,0 +1,24 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <g id="Layer_1">
+        <title>Layer 1</title>
+        <g stroke="null">
+
+            <path stroke="null" transform="translate(-712.63 -40)"
+                  d="m2546.56751,105.25011l-504.30817,504.30817l504.30817,504.30817l504.30817,-504.30817l-504.30817,-504.30817zm-0.36678,781.78057l-277.12599,-277.12599l277.12599,-277.12599l0,554.25198z"
+                  fill="url(#svg_7)"/>
+            <path stroke="null" transform="translate(-712.63 -70)"
+                  d="m2546.56751,105.25011l-504.30817,504.30817l504.30817,504.30817l504.30817,-504.30817l-504.30817,-504.30817zm-0.36678,781.78057l-277.12599,-277.12599l277.12599,-277.12599l0,554.25198z"
+                  fill="url(#svg_6)"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient gradientTransform="rotate(45)" id="svg_6">
+            <stop stop-color="#e4cfde" offset="0%"/>
+            <stop stop-color="#564952" offset="100%"/>
+        </linearGradient>
+        <linearGradient gradientTransform="rotate(45)" id="svg_7">
+            <stop stop-opacity="0.3" stop-color="#564952" offset="0%"/>
+            <stop stop-opacity="0.3" stop-color="#e4cfde" offset="100%"/>
+        </linearGradient>
+    </defs>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c099a7f6-38c8-4153-9a28-4a1799bc40c7" name="kwt-server" url="http://videoprof.ddns.net/">
+        <fileTransfer mountedRoot="W:\videoprof.ddns.net" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

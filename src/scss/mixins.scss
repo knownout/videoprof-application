@@ -1,0 +1,51 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "./colors";
+
+// Create a common block from an element
+@mixin content-block($size: 20px, $bg: transparent, $color: #111) {
+    position: relative;
+    padding: $size;
+    border-radius: $size;
+
+    border: none;
+
+    width: fit-content;
+    text-decoration: none;
+    color: $color;
+
+    background: $bg;
+}
+
+// Create interactive block
+@mixin interactive-block($outline: 4px) {
+    user-select: none;
+    transition: 100ms ease all;
+    opacity: .9;
+    cursor: pointer;
+
+    &:hover { opacity: 1; }
+
+    &:active { transform: scale(0.95, 0.95); }
+
+    &:focus { box-shadow: 0 0 0 $outline rgba(colors.$fg-light, .35); }
+}
+
+// Common span and other text element styles
+@mixin text-content {
+    position: relative;
+    display: block;
+
+    width: fit-content;
+}
+
+// Disable text overflow
+@mixin text-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

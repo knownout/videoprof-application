@@ -1,0 +1,25 @@
+<svg id="videoprof-logo-root" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.04 891.49">
+    <defs>
+        <linearGradient id="grd-line" gradientTransform="rotate(90)">
+            <stop offset="0%" stop-color="#564952"/>
+            <stop offset="90%" stop-color="#e4cfde" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="grd-root" gradientTransform="rotate(45)">
+            <stop offset="0%" stop-color="#564952"/>
+            <stop offset="100%" stop-color="#e4cfde"/>
+        </linearGradient>
+        <linearGradient id="grd-root-bg" gradientTransform="rotate(45)">
+            <stop offset="0%" stop-color="#564952" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#e4cfde" stop-opacity="0.3"/>
+        </linearGradient>
+    </defs>
+    <path fill="url('#grd-line')" d="M960,457.08l247.35,247.35Q1083.7,397.22,960,90,836.31,397.16,712.63,704.32l.07.08Z"
+          transform="translate(-712.63 -60)"/>
+    <path fill="url('#grd-root-bg')"
+          d="M960.18,456.51,712.69,704,960.18,951.49,1207.67,704ZM960,840.17l-136-136,136-136Z"
+          transform="translate(-712.63 -60)"/>
+    <path fill="url('#grd-root')" d="M960.18,456.51,712.69,704,960.18,951.49,1207.67,704ZM960,840.17l-136-136,136-136Z"
+          transform="translate(-712.63 -90)"/>
+    <path fill="url('#grd-line')" d="M960,457.08l247.35,247.35Q1083.7,397.22,960,90,836.31,397.16,712.63,704.32l.07.08Z"
+          transform="translate(-712.63 -90)" style="opacity: 0.9"/>
+</svg>

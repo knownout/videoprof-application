@@ -1,0 +1,34 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "../../scss/mixins";
+@use "../../scss/gradients";
+@use "../../scss/colors";
+
+button.link-component {
+    @include mixins.content-block(0px);
+    @include mixins.interactive-block(5px);
+
+    font-size: 22px;
+    width: fit-content;
+
+    height: fit-content;
+    transition: 100ms ease all;
+    border-radius: 30px;
+
+    & > a {
+        font-weight: 700;
+        position: relative;
+        display: block;
+
+        @include mixins.content-block(30px);
+        @include gradients.text-light;
+    }
+
+    &:hover { background: rgba(colors.$fg-light, .1); }
+
+    &:focus-within { box-shadow: 0 0 0 5px rgba(colors.$fg-light, .35) }
+}
