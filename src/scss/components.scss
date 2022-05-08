@@ -10,7 +10,7 @@
 
 // KWT Interface library components stylesheet
 
-button.interface.button {
+button.interface.button:not(.link) {
     @include mixins.content-block(30px, gradients.$linear-light);
     @include mixins.interactive-block(5px);
 
@@ -21,6 +21,31 @@ button.interface.button {
         font-size: 22px;
         font-weight: 700;
     }
+}
+
+button.interface.button.link {
+    @include mixins.content-block(0px);
+    @include mixins.interactive-block(5px);
+
+    font-size: 22px;
+    width: fit-content;
+
+    height: fit-content;
+    transition: 100ms ease all;
+    border-radius: 30px;
+
+    & > a {
+        font-weight: 700;
+        position: relative;
+        display: block;
+
+        @include mixins.content-block(30px);
+        @include gradients.text-light;
+    }
+
+    &:hover { background: rgba(colors.$fg-light, .1); }
+
+    &:focus-within { box-shadow: 0 0 0 5px rgba(colors.$fg-light, .35) }
 }
 
 div.interface.dropdown {
@@ -187,6 +212,126 @@ div.interface.input {
         input {
             transform: translateY(9px);
         }
+    }
+}
+
+div.interface.popup {
+    position: fixed;
+    z-index: 10;
+
+    top: 0;
+    left: 0;
+
+    display: grid;
+    width: 100%;
+    height: 100%;
+
+    transition: 100ms ease all;
+    background: rgba(colors.$bg-dark, .35);
+
+    place-items: center;
+    backdrop-filter: blur(15px);
+
+    div.popup-child {
+        position: relative;
+        display: flex;
+
+        flex-direction: column;
+        width: 640px;
+
+        max-width: 100%;
+
+        padding: 20px;
+        transition: inherit;
+
+        transform-origin: bottom center;
+    }
+
+    &:not(.display) {
+        pointer-events: none;
+        opacity: 0;
+
+        div.popup-content-wrapper {
+            transform: scale(0.75, 0.75);
+        }
+    }
+
+    @supports not (backdrop-filter: blur(15px)) {
+        background: rgba(colors.$bg-dark, .98);
+    }
+}
+
+div.interface.loading-screen {
+    position: fixed;
+    z-index: 20;
+
+    top: 0;
+    left: 0;
+
+    display: grid;
+    width: 100%;
+
+    height: 100%;
+    transition: 100ms ease all;
+    background: colors.$bg-dark;
+    place-items: center;
+
+    div.loading-screen-wrapper {
+        position: relative;
+        display: flex;
+
+        align-items: center;
+        flex-direction: column;
+        transition: inherit;
+
+        transform-origin: bottom center;
+
+        gap: 10px;
+
+        div.progress-bar {
+            box-sizing: border-box;
+            width: 220px;
+            height: 10px;
+
+            animation: 1s linear infinite anim;
+
+            border-radius: 5px;
+            background: linear-gradient(90deg,
+                    #405DE6,
+                    #405DE6,
+                    #833AB4,
+                    #E1306C,
+                    #FCAF45,
+                    #FFDC80,
+                    #405DE6, #405DE6
+            ) 0 center no-repeat;
+            background-size: 650% 650%;
+        }
+
+        span.loading-title {
+            @include mixins.text-content;
+            @include gradients.text-light;
+
+            font-size: 13px;
+
+            font-weight: 700;
+            text-align: center;
+
+            text-transform: uppercase;
+
+            opacity: .7;
+        }
+
+        @keyframes anim {
+            100% { background-position: 100% center; }
+        }
+    }
+
+    &:not(.display) {
+        pointer-events: none;
+        opacity: 0;
+
+        div.loading-screen-wrapper { transform: scale(0.6, 0.6) }
     }
 }
 

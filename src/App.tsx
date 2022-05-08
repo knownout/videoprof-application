@@ -4,27 +4,37 @@
  * https://github.com/re-knownout/lib
  */
 
-import React, { Fragment } from "react";
-import "./App.scss";
-import { Button, Dropdown, DropdownItem, Input } from "@knownout/interface";
 import { CakeIcon, SelectorIcon } from "@heroicons/react/outline";
-import { LinkComponent, LoadingComponent, PopupComponent } from "@package";
-import { usePopupState } from "@package/state";
+
+import { Button, Dropdown, DropdownItem, Input, LoadingScreen, Popup } from "@knownout/interface";
+import { ILoadingScreenState } from "@knownout/interface/dist/components/LoadingScreen";
+import { IPopupState } from "@knownout/interface/dist/components/Popup";
+
+import React, { Fragment } from "react";
+import { atom, useRecoilState } from "recoil";
+
+import "./App.scss";
+
+const popupRecoilStateAtom = atom<IPopupState>({
+    key: "popup-component-state",
+    default: { display: false }
+});
+
+const loadingScreenRecoilStateAtom = atom<ILoadingScreenState>({
+    key: "loading-screen-component-state",
+    default: { display: false }
+})
 
 export default function App () {
-    const setPopupState = usePopupState()[1];
+    const popupRecoilState = useRecoilState(popupRecoilStateAtom);
+    const loadingScreenRecoilState = useRecoilState(loadingScreenRecoilStateAtom);
 
     return <Fragment>
-        <PopupComponent />
-        <LoadingComponent />
+        <Popup popupState={ popupRecoilState[0] } setPopupState={ popupRecoilState[1] } />
+        <LoadingScreen state={ loadingScreenRecoilState[0] } />
 
-        <LinkComponent path="#"> Hello world</LinkComponent>
-        <Button onClick={ () => {
-            setPopupState({
-                children: <div>Hello world</div>,
-                display: true
-            });
-        } }>Hello world</Button>
+        <Button href="#">Hello world</Button>
+        <Button>Hello world</Button>
 
         <Dropdown defaultTitle="Select something" icon={ <SelectorIcon /> }>
             <DropdownItem>Option first</DropdownItem>
