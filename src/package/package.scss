@@ -1,0 +1,22 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+div.container-component {
+    position: relative;
+    width: 100%;
+
+    &.fixed {
+        display: grid;
+        height: 100%;
+        min-height: fit-content;
+        place-items: center center;
+    }
+
+    &:not(.fixed) {
+        display: flex;
+        height: fit-content;
+    }
+}

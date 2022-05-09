@@ -7,10 +7,10 @@
 @use "./colors";
 
 // Create a common block from an element
-@mixin content-block($size: 20px, $bg: transparent, $color: #111) {
+@mixin content-block($size: 30px, $bg: transparent, $color: #111) {
     position: relative;
     padding: $size;
-    border-radius: $size;
+    border-radius: $size + 10px;
 
     border: none;
 
@@ -22,7 +22,7 @@
 }
 
 // Create interactive block
-@mixin interactive-block($outline: 4px) {
+@mixin interactive-block($outline: 5px) {
     user-select: none;
     transition: 100ms ease all;
     opacity: .9;
@@ -41,6 +41,7 @@
     display: block;
 
     width: fit-content;
+    user-select: none;
 }
 
 // Disable text overflow

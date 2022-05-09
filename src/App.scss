@@ -4,9 +4,14 @@
  * https://github.com/re-knownout/lib
  */
 
+@use "./scss/gradients";
+@use "./scss/mixins";
+@use "./scss/colors";
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 @import "/public/normalize.css";
 @import "./scss/components";
+@import "./package/package";
 
 body, html {
     overflow: hidden;
@@ -22,6 +27,130 @@ body, html {
 
     background-position: center center;
     background-size: cover;
+
+    // Shortcuts
+
+    .flex {
+        position: relative;
+        display: flex;
+
+        &-col { flex-direction: column; }
+
+        &-row { flex-direction: row; }
+
+        &-nw { flex-wrap: nowrap; }
+
+        &-w { flex-wrap: wrap; }
+
+        &-cai { align-items: center; }
+
+        &-cjc { justify-content: center; }
+    }
+
+    .grid {
+        position: relative;
+        display: grid;
+
+        &-ct { place-items: center center; }
+    }
+
+    .upc { text-transform: uppercase; }
+
+    .light-gradient {
+        @include mixins.text-content;
+        @include gradients.text-light;
+
+        font-weight: 700;
+    }
+
+    div.text-content > .sub {
+        opacity: .5;
+    }
+}
+
+main#app-root {
+    position: relative;
+    display: block;
+
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    width: 100%;
+
+    height: 100%;
+
+    & > #scroll-wrapper {
+        position: relative;
+        display: block;
+
+        overflow: hidden;
+        overflow-y: auto;
+
+        width: 100%;
+        height: 100%;
+
+        background: radial-gradient(circle at top center, colors.$bg-light, colors.$bg-dark 80%);
+
+        @media not screen and (pointer: coarse) {
+            &::-webkit-scrollbar {
+                width: 18px;
+                background-color: #171319;
+            }
+
+            /* Buttons */
+            &::-webkit-scrollbar-button:single-button {
+                display: block;
+
+                background-color: #171319;
+                background-repeat: no-repeat;
+                background-size: 10px;
+            }
+
+            /* Up */
+            &::-webkit-scrollbar-button:single-button:vertical:decrement {
+                width: 18px;
+                height: 18px;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='50,00 0,50 100,50'/></svg>");
+                background-position: center 6px;
+            }
+
+            &::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='50,00 0,50 100,50'/></svg>");
+            }
+
+            &::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='50,00 0,50 100,50'/></svg>");
+            }
+
+            /* Down */
+            &::-webkit-scrollbar-button:single-button:vertical:increment {
+                width: 18px;
+                height: 18px;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,0 100,0 50,50'/></svg>");
+                background-position: center 7px;
+            }
+
+            &::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 100,0 50,50'/></svg>");
+            }
+
+            &::-webkit-scrollbar-button:single-button:vertical:increment:active {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 100,0 50,50'/></svg>");
+            }
+
+
+            //&::-webkit-scrollbar-button { display: none; }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #726F73;
+
+                &:hover { background-color: #5D5A5E; }
+
+                &:active { background-color: #3D3A3F; }
+            }
+        }
+    }
 }
 
 * {

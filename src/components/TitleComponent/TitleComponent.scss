@@ -1,0 +1,61 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "../../scss/mixins";
+@use "../../scss/colors";
+
+div.container-component.title-component.fixed {
+    transform: translateY(-30px);
+
+    a.fuori-group {
+        @include mixins.content-block(30px);
+        @include mixins.interactive-block;
+
+        width: fit-content;
+
+        transform: translateY(30px) translateX(-30px);
+        border-radius: 40px;
+
+        gap: 15px;
+
+        & > img { height: 60px; }
+
+        div.text-content span { font-size: 32px; }
+
+        &:hover { background: rgba(colors.$fg-light, .05); }
+
+        &:active { transform: translateY(30px) translateX(-30px) scale(0.95, 0.95); }
+    }
+
+    div.title-content {
+        h1 { font-size: 222px; }
+
+        h2 { font-size: 65px; line-height: 86px; opacity: .6; }
+    }
+
+    div.buttons {
+        margin-top: 60px;
+
+        transform-origin: left top;
+        gap: 20px;
+    }
+
+    img.bg-image {
+        position: absolute;
+        display: block;
+
+        top: 0;
+        right: 0;
+
+        min-width: 100%;
+        min-height: 100%;
+
+        transform: translateZ(-1px) scale(1);
+
+        opacity: .3;
+        perspective: 2px;
+    }
+}
