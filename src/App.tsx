@@ -5,28 +5,43 @@
  */
 
 import { LoadingScreen, Popup } from "@knownout/interface";
-import { ILoadingScreenState } from "@knownout/interface/dist/components/LoadingScreen";
-import { IPopupState } from "@knownout/interface/dist/components/Popup";
+import { useLoadingState } from "@knownout/interface/dist/components/LoadingScreen";
 
-import React, { Fragment } from "react";
-import { atom, useRecoilState } from "recoil";
+import React, { Fragment, useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+
+import waitForImages from "@package/utils/wait-for-images";
+import minLoadingTime from "@package/utils/min-loading-time";
+import { loadingScreenRecoilStateAtom, popupRecoilStateAtom } from "@package/internal/recoil-state";
+import { TLoadableData } from "@package/internal/shared-types";
+
+import { ProjectsComponent, TitleComponent } from "./components";
 
 import "./App.scss";
-import TitleComponent from "./components/TitleComponent/TitleComponent";
-
-const popupRecoilStateAtom = atom<IPopupState>({
-    key: "popup-component-state",
-    default: { display: false }
-});
-
-const loadingScreenRecoilStateAtom = atom<ILoadingScreenState>({
-    key: "loading-screen-component-state",
-    default: { display: false }
-});
 
 export default function App () {
     const popupRecoilState = useRecoilState(popupRecoilStateAtom);
     const loadingScreenRecoilState = useRecoilState(loadingScreenRecoilStateAtom);
+
+    const [ content, setContent ] = useState<TLoadableData>();
+
+    const { finishLoading } = useLoadingState(...loadingScreenRecoilState);
+
+    useEffect(() => {
+        const processStart = performance.now();
+
+        fetch("/public/content.json").then(res => res.json()).then(async (res: TLoadableData) => {
+            setContent(res);
+
+            await waitForImages([
+                ...res.projects.map(e => e.image),
+                ...res.contacts.map(e => e.image)
+            ]);
+
+            await minLoadingTime(processStart);
+            finishLoading("any");
+        });
+    }, []);
 
     return <Fragment>
         <Popup popupState={ popupRecoilState[0] } setPopupState={ popupRecoilState[1] } />
@@ -34,6 +49,7 @@ export default function App () {
 
         <div id="scroll-wrapper">
             <TitleComponent />
+            { content && <ProjectsComponent projects={ content.projects } /> }
         </div>
     </Fragment>;
 };

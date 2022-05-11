@@ -40,9 +40,9 @@ button.interface.button.link {
     transition: 100ms ease all;
 
     & > a {
+        font-weight: 700;
         position: relative;
         display: block;
-        font-weight: 700;
 
         @include mixins.content-block(30px);
         @include gradients.text-light;
@@ -177,14 +177,14 @@ div.interface.input {
             @include mixins.content-block(30px);
             @include mixins.text-ellipsis;
 
-            position: absolute;
-
-            display: block;
-            top: 0;
-            left: 0;
             font-size: 22px;
 
             font-weight: 700;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
             width: 100%;
             transition: 100ms ease all;
 
@@ -222,12 +222,12 @@ div.interface.input {
 
 div.interface.popup {
     position: fixed;
-    display: grid;
+    z-index: 10;
 
     top: 0;
     left: 0;
 
-    z-index: 10;
+    display: grid;
     width: 100%;
     height: 100%;
 
@@ -242,9 +242,6 @@ div.interface.popup {
         display: flex;
 
         flex-direction: column;
-        width: 640px;
-
-        max-width: 100%;
 
         padding: 20px;
         transition: inherit;
@@ -268,12 +265,12 @@ div.interface.popup {
 
 div.interface.loading-screen {
     position: fixed;
-    display: grid;
+    z-index: 20;
 
     top: 0;
     left: 0;
 
-    z-index: 20;
+    display: grid;
     width: 100%;
 
     height: 100%;

@@ -1,0 +1,44 @@
+{
+    "projects": [
+        {
+            "name": "«Долгая ночь»",
+            "type": "video",
+            "description": "Клип к каверу трека группы Аракс",
+            "image": "/public/images/video-cover-01.webp",
+            "content": "long-night-clip"
+        },
+        {
+            "name": "«Иван и Надежда»",
+            "type": "video",
+            "description": "Дополнительный клип к свадебному материалу",
+            "image": "/public/images/video-cover-02.webp",
+            "content": "wedding-001-clip"
+        },
+        {
+            "name": "Фотосет #01",
+            "type": "photo",
+            "description": "Фотосет, созданный для данного сайта",
+            "image": "/public/images/photoset-cover-01.webp",
+            "content": "photoset-alexandra-01"
+        }
+    ],
+    "contacts": [
+        {
+            "type": "Приднестровский номер телефона",
+            "content": "+373 (778) 0-45-12",
+            "link": "tel:+37377804512",
+            "image": "/public/flags/transnistria.webp"
+        },
+        {
+            "type": "Молдавский номер телефона",
+            "content": "+373 (61) 0-19-700",
+            "link": "tel:+37361019700",
+            "image": "/public/flags/moldova.webp"
+        },
+        {
+            "type": "Электронная почта",
+            "content": "videoprof@fuori.org",
+            "link": "mailto:videoprof@fuori.org"
+        }
+    ]
+}

@@ -10,8 +10,10 @@ import useLinkButtonHandler from "@package/utils/use-link-button-handler";
 
 import React, { memo } from "react";
 import "./TitleComponent.scss";
+import { useNavigate } from "react-router-dom";
 
 export default memo(() => {
+    const navigate = useNavigate();
     const hdlClick = useLinkButtonHandler();
 
     return <ContainerComponent fixed className="title-component">
@@ -31,7 +33,7 @@ export default memo(() => {
             </h2>
         </div>
         <div className="buttons flex flex-row flex-w">
-            <Button>Напишите нам</Button>
+            <Button onClick={ () => navigate("/write-message") }>Напишите нам</Button>
             <Button href="/latest" onClick={ hdlClick }>Наши работы</Button>
             <Button href="/contacts" onClick={ hdlClick }>Контакты</Button>
         </div>

@@ -10,8 +10,9 @@ div.container-component {
 
     &.fixed {
         display: grid;
-        height: 100%;
-        min-height: fit-content;
+        height: fit-content;
+
+        min-height: 100%;
         place-items: center center;
     }
 
