@@ -5,11 +5,17 @@
  */
 
 import TitleComponent from "./TitleComponent/TitleComponent";
-import ProjectsComponent from "./ProjectsComponent/ProjectsComponent";
+import ProjectsComponent from "./ProjectComponent/ProjectsComponent";
 import ProjectComponent from "./ProjectComponent/ProjectComponent";
+import ContactsComponent from "./ContactComponent/ContactsComponent";
+import ContactComponent from "./ContactComponent/ContactComponent";
+import SectionTitleComponent from "./SectionTitleComponent";
 
 export {
     TitleComponent,
     ProjectsComponent,
-    ProjectComponent
+    ProjectComponent,
+    ContactsComponent,
+    ContactComponent,
+    SectionTitleComponent
 };

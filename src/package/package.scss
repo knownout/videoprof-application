@@ -12,7 +12,7 @@ div.container-component {
         display: grid;
         height: fit-content;
 
-        min-height: 100%;
+        min-height: 100vh;
         place-items: center center;
     }
 
@@ -20,4 +20,35 @@ div.container-component {
         display: flex;
         height: fit-content;
     }
+}
+
+div.interface.popup > div.popup-child {
+    width: fit-content;
+    max-width: 540px;
+    padding: 20px;
+
+    div.write-message div.content-input { margin: 30px 0; gap: 20px; }
+
+    div.text-content {
+        span { font-size: 32px; }
+
+        span.sub { font-size: 20px; opacity: .7; }
+
+        gap: 10px;
+    }
+
+    div.interface.input, div.interface.dropdown { width: 100%; }
+
+    div.buttons { justify-content: center; width: 100%; gap: 10px; }
+
+    div.message-sent {
+        gap: 20px;
+
+        div.text-content { gap: 10px; }
+    }
+}
+
+div.grecaptcha-badge {
+    display: none !important;
+    opacity: 0 !important;
 }

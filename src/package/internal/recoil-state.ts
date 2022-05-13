@@ -8,12 +8,17 @@ import { atom } from "recoil";
 import { IPopupState } from "@knownout/interface/dist/components/Popup";
 import { ILoadingScreenState } from "@knownout/interface/dist/components/LoadingScreen";
 
-export const popupRecoilStateAtom = atom<IPopupState>({
+export const popupRecoilState = atom<IPopupState>({
     key: "popup-component-state",
     default: { display: false }
 });
 
-export const loadingScreenRecoilStateAtom = atom<ILoadingScreenState>({
+export const loadingScreenRecoilState = atom<ILoadingScreenState>({
     key: "loading-screen-component-state",
     default: { display: true, title: "Загружаем данные" }
+});
+
+export const pageLocationState = atom({
+    key: "page-scroll-location-state",
+    default: 0
 });

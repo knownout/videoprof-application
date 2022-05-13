@@ -10,8 +10,6 @@ import { TProject } from "@package/internal/shared-types";
 import { useNavigate } from "react-router-dom";
 import { classNames } from "@knownout/lib";
 
-import "./ProjectComponent.scss";
-
 export default memo((props: TProject) => {
     const navigate = useNavigate();
 
@@ -19,7 +17,9 @@ export default memo((props: TProject) => {
     const route = "/watch/" + props.type + "/" + props.content;
 
     return <button className={ className } onClick={ () => navigate(route) }>
-        <div className="cover-image" style={ { backgroundImage: `url("${ props.image }")` } } />
+        <div className="cover-image" style={ { backgroundImage: `url("${ props.image }")` } }>
+            <div>Смотреть</div>
+        </div>
         <div className="text-content flex flex-col flex-nw">
             <span className="light-gradient">{ props.name }</span>
             <span className="sub light-gradient">{ props.description }</span>

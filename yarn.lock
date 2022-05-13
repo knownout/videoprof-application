@@ -993,10 +993,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@knownout/interface@0.2.8":
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/@knownout/interface/-/interface-0.2.8.tgz#1150d2ea2a2f00f27de01d21bc12716d40230e97"
-  integrity sha512-rUBcy2YaTWeZPMlFtpZ1990y5Ys+iGzXTVApAlFLGdtBo2dBTLCUQgDjlaztxkjKR32jEKoh2p+bhrZCNpFSrw==
+"@knownout/interface@0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@knownout/interface/-/interface-0.2.9.tgz#094e6ebdf978e52d382374ad3c94aa1a598a208b"
+  integrity sha512-RkgB0ypcrN2NNWAJqc0PcVy313fbpVDeZ2b00qsu6vX4s7ffTujkfHUhwYJ97mpelNdx3xjtwO3v2F+MdFlEug==
   dependencies:
     "@knownout/lib" "^0.1.0"
     react "^18.1.0"

@@ -35,7 +35,7 @@
     &:focus { box-shadow: 0 0 0 $outline rgba(colors.$fg-light, .35); }
 }
 
-// Common span and other text element styles
+// Common span and other text element ContactsComponent.scss
 @mixin text-content {
     position: relative;
     display: block;

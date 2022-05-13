@@ -7,25 +7,37 @@
 import { LoadingScreen, Popup } from "@knownout/interface";
 import { useLoadingState } from "@knownout/interface/dist/components/LoadingScreen";
 
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
-import waitForImages from "@package/utils/wait-for-images";
-import minLoadingTime from "@package/utils/min-loading-time";
-import { loadingScreenRecoilStateAtom, popupRecoilStateAtom } from "@package/internal/recoil-state";
 import { TLoadableData } from "@package/internal/shared-types";
+import { loadingScreenRecoilState, popupRecoilState } from "@package/internal/recoil-state";
+import { minLoadingTime, usePageLocation, useRoutesProcessor, waitForImages } from "@package/utils";
 
-import { ProjectsComponent, TitleComponent } from "./components";
+import { ContactsComponent, ProjectsComponent, SectionTitleComponent, TitleComponent } from "./components";
 
 import "./App.scss";
 
+
 export default function App () {
-    const popupRecoilState = useRecoilState(popupRecoilStateAtom);
-    const loadingScreenRecoilState = useRecoilState(loadingScreenRecoilStateAtom);
+    const recoilPopupState = useRecoilState(popupRecoilState);
+    const recoilLoadingState = useRecoilState(loadingScreenRecoilState);
+
+    const navigate = useNavigate();
 
     const [ content, setContent ] = useState<TLoadableData>();
 
-    const { finishLoading } = useLoadingState(...loadingScreenRecoilState);
+    const { finishLoading } = useLoadingState(...recoilLoadingState);
+
+    const refsList = {
+        contacts: useRef<HTMLDivElement>(null),
+
+        projects: useRef<HTMLDivElement>(null)
+    };
+
+    useRoutesProcessor();
+    usePageLocation();
 
     useEffect(() => {
         const processStart = performance.now();
@@ -43,13 +55,23 @@ export default function App () {
         });
     }, []);
 
-    return <Fragment>
-        <Popup popupState={ popupRecoilState[0] } setPopupState={ popupRecoilState[1] } />
-        <LoadingScreen state={ loadingScreenRecoilState[0] } />
 
-        <div id="scroll-wrapper">
-            <TitleComponent />
-            { content && <ProjectsComponent projects={ content.projects } /> }
-        </div>
+    const popupClickHandler = useCallback((_: any, root: boolean) => root && navigate("/"), []);
+
+    return <Fragment>
+        <div className="bg-gradient" />
+
+        <Popup popupState={ recoilPopupState[0] } setPopupState={ recoilPopupState[1] } onClick={ popupClickHandler } />
+        <LoadingScreen state={ recoilLoadingState[0] } />
+
+        <TitleComponent refsList={ refsList } />
+
+        <SectionTitleComponent ref={ refsList.projects }>Наши работы</SectionTitleComponent>
+
+        { content && <ProjectsComponent projects={ content.projects } /> }
+
+        <SectionTitleComponent ref={ refsList.contacts }>Контакты</SectionTitleComponent>
+
+        { content && <ContactsComponent contacts={ content.contacts } /> }
     </Fragment>;
 };

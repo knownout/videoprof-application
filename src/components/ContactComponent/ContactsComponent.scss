@@ -1,0 +1,133 @@
+/*!
+ * Copyright (c) 2022 Alexandr <re-knownout> knownout@hotmail.com
+ * Licensed under the GNU Affero General Public License v3.0 License (AGPL-3.0)
+ * https://github.com/re-knownout/videoprof-application
+ */
+
+@use "../../scss/mixins";
+@use "../../scss/gradients";
+@use "../../scss/colors";
+
+div.container-component.contacts-component {
+    margin-bottom: 60px;
+    padding: 20px;
+
+    span.click-hint {
+        font-size: 24px;
+
+        text-align: center;
+        opacity: .7;
+    }
+
+    div.container-component-child {
+        position: relative;
+        display: flex;
+
+        align-items: center;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 640px;
+
+        gap: 40px;
+
+        div.contacts-list { gap: 30px; }
+    }
+
+}
+
+a.contact-component {
+    @include mixins.content-block(40px);
+    @include mixins.interactive-block(6px);
+
+    overflow: hidden;
+
+    width: 100%;
+
+    opacity: .85;
+
+    &:hover {
+        transform: scale(1.07, 1.07);
+        opacity: .99;
+    }
+
+    &:active { transform: scale(1, 1); }
+
+    div.cover-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: .3;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        background-size: cover;
+        mask-image: radial-gradient(circle at left center, #000, transparent 90%);
+
+    }
+
+    div.text-content {
+        gap: 10px;
+
+        span {
+            @include mixins.text-content;
+            @include gradients.text-light;
+
+            font-size: 42px;
+
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        span.sub { font-size: 26px; opacity: .85; }
+    }
+
+    &.no-image {
+        background: radial-gradient(circle at left center, colors.$bg-light, transparent 90%);
+    }
+
+    &:nth-child(2n) div.cover-image {
+        mask-image: radial-gradient(circle at right center, #000, transparent 90%);
+    }
+
+    @media screen and (max-width: 700px) {
+        &:hover {
+            transform: scale(1.03, 1.03);
+            opacity: .99;
+        }
+
+        &:active { transform: scale(1, 1); }
+    }
+
+    @media screen and (max-width: 580px) {
+        div.text-content span {
+            font-size: 32px;
+
+            &.sub { font-size: 22px; opacity: .85; }
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        @include mixins.content-block(20px);
+
+        div.text-content span {
+            font-size: 26px;
+
+            &.sub { font-size: 18px; opacity: .85; }
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        div.text-content span {
+            font-size: 22px;
+
+            &.sub { font-size: 16px; opacity: .85; }
+        }
+    }
+}

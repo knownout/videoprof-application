@@ -8,13 +8,18 @@ import { Button } from "@knownout/interface";
 import ContainerComponent from "@package/ContainerComponent";
 import useLinkButtonHandler from "@package/utils/use-link-button-handler";
 
-import React, { memo } from "react";
+import React, { memo, RefObject } from "react";
 import "./TitleComponent.scss";
 import { useNavigate } from "react-router-dom";
 
-export default memo(() => {
+interface ITitleComponentProps
+{
+    refsList: { [key: string]: RefObject<HTMLDivElement> };
+}
+
+export default memo((props: ITitleComponentProps) => {
     const navigate = useNavigate();
-    const hdlClick = useLinkButtonHandler();
+    const hdlClick = useLinkButtonHandler(props.refsList);
 
     return <ContainerComponent fixed className="title-component">
         <img src="/public/bg-w-logo.svg" alt="" className="bg-image" />
@@ -34,7 +39,7 @@ export default memo(() => {
         </div>
         <div className="buttons flex flex-row flex-w">
             <Button onClick={ () => navigate("/write-message") }>Напишите нам</Button>
-            <Button href="/latest" onClick={ hdlClick }>Наши работы</Button>
+            <Button href="/projects" onClick={ hdlClick }>Наши работы</Button>
             <Button href="/contacts" onClick={ hdlClick }>Контакты</Button>
         </div>
     </ContainerComponent>;

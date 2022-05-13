@@ -16,7 +16,7 @@
         "@babel/preset-env": "^7.17.10",
         "@babel/preset-react": "^7.16.7",
         "@heroicons/react": "^1.0.6",
-        "@knownout/interface": "0.2.8",
+        "@knownout/interface": "0.2.9",
         "@knownout/lib": "^0.1.2",
         "@types/node": "^17.0.32",
         "@types/react": "^18.0.9",
